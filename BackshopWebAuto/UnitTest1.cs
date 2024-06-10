@@ -122,7 +122,7 @@ namespace BackshopWebAuto
 
             Thread.Sleep(waitingTime);
 
-            // Select call button
+            // Select    call button
             webDriver.FindElement(callButton).Click();
 
             Thread.Sleep(waitingTime);
