@@ -16,6 +16,12 @@ namespace BackshopWebAuto
     [TestClass]
     public class UnitTest1
     {
+        class inputInfo
+        {
+
+            
+        }
+
         [TestMethod]
         public void TestMethod1()
         {
@@ -135,6 +141,9 @@ namespace BackshopWebAuto
 
             Thread.Sleep(waitingTime);
 
+            // Start of JSON Parsing
+            string json = System.IO.File.ReadAllText(@"C:\Users\JamesBass\Documents\Selenium\BackshopWebAuto\inputInfo.json");
+            var deserialized = JsonConvert.DeserializeObject<inputInfo>(json);
             webDriver.FindElement(investor).SendKeys("Equitrust");
 
 
