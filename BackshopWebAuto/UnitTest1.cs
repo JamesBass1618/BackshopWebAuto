@@ -152,7 +152,7 @@ namespace BackshopWebAuto
             Thread.Sleep(waitingTime);
 
             // Start of JSON Parsing
-            string json = System.IO.File.ReadAllText(@"C:\Users\JamesBass\Documents\Selenium\BackshopWebAuto\inputInfo.json");
+            string json = System.IO.File.ReadAllText(@"C:\Users\JamesBass\Documents\Selenium\BackshopWebAuto\BackshopWebAuto\inputInfo.json");
             InputInfo deserialized = JsonConvert.DeserializeObject<InputInfo>(json);
 
 
@@ -193,8 +193,6 @@ namespace BackshopWebAuto
             {
                 By form = By.Id("TWOTABSONLY_");
                 webDriver.FindElement(form).Click();
-
-                Thread.Sleep(waitingTime);
             }
 
             // Else for uniformity/readability
@@ -202,6 +200,8 @@ namespace BackshopWebAuto
             {
                 // Do nothing, already unchecked
             }
+
+            Thread.Sleep(waitingTime);
 
             By export;
 
