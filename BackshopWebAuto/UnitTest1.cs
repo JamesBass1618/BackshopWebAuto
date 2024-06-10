@@ -102,6 +102,9 @@ namespace BackshopWebAuto
             // Give time to see
             Thread.Sleep(waitingTime);
 
+
+            /** Initial Login Begin **/
+
             webDriver.FindElement(emailButton).SendKeys("jbass@acorecapital.com"); ;
 
             Thread.Sleep(waitingTime);
@@ -132,6 +135,9 @@ namespace BackshopWebAuto
            
             webDriver.FindElement(yesButton).Click();
 
+            /** Initial Login End **/
+
+
             // Website takes time to load so wait 
             int webWait = 15000;
             Thread.Sleep(webWait);
@@ -140,6 +146,7 @@ namespace BackshopWebAuto
 
             Thread.Sleep(waitingTime);
 
+            // Choose pipeline report
             webDriver.FindElement(pipelineRep).Click();
 
             Thread.Sleep(waitingTime);
@@ -190,9 +197,10 @@ namespace BackshopWebAuto
                 Thread.Sleep(waitingTime);
             }
 
+            // Else for uniformity/readability
             else
             {
-                // Do nothing
+                // Do nothing, already unchecked
             }
 
             By export;
@@ -210,6 +218,7 @@ namespace BackshopWebAuto
  
             }
 
+            //  Run the report
             Thread.Sleep(waitingTime);
 
             By buttonReport = By.Id("buttonRunReport_1");
@@ -217,6 +226,7 @@ namespace BackshopWebAuto
 
             Thread.Sleep(waitingTime);
 
+            // Give time for report to download
             Thread.Sleep(20000);
 
             webDriver.Quit();
