@@ -182,8 +182,8 @@ namespace BackshopWebAuto
             Thread.Sleep(waitingTime);
 
             // Select the date
-            //By chooseDate = By.Id("EFFECTIVEDATE");
-            //webDriver.FindElement(chooseDate).SendKeys("");
+            By chooseDate = By.Id("EFFECTIVEDATE");
+            webDriver.FindElement(chooseDate).Clear();
             //webDriver.FindElement(chooseDate).SendKeys(date);
 
             Thread.Sleep(waitingTime);
