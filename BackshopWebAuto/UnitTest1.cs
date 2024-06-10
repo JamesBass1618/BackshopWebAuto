@@ -176,15 +176,15 @@ namespace BackshopWebAuto
             Thread.Sleep(waitingTime);
 
             // Select the office
-            By chooseOffice = By.Id("OFFICEREGIONID");
-            webDriver.FindElement(chooseOffice).SendKeys(office);
+            SelectElement selectElement = new SelectElement(webDriver.FindElement(By.Id("OFFICEREGIONID")));
+            selectElement.SelectByText("Office: DAL");
 
             Thread.Sleep(waitingTime);
 
             // Select the date
-            //By chooseDate = By.Id("EFFECTIVEDATE");
-            //webDriver.FindElement(chooseDate).SendKeys("");
-            //webDriver.FindElement(chooseDate).SendKeys(date);
+            By chooseDate = By.Id("EFFECTIVEDATE");
+            webDriver.FindElement(chooseDate).Clear();
+            webDriver.FindElement(chooseDate).SendKeys(date);
 
             Thread.Sleep(waitingTime);
 
