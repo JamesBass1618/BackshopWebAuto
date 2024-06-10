@@ -169,13 +169,13 @@ namespace BackshopWebAuto
 
             // Drop down menu options
 
-            // Select the investor
+            // Select the investor using SelectElement
             SelectElement investorSelector = new SelectElement(webDriver.FindElement(By.Id("INVESTORID")));
             investorSelector.SelectByValue("10");
 
             Thread.Sleep(waitingTime);
 
-            // Select the office using selector
+            // Select the office using SelectElement
             SelectElement selectElement = new SelectElement(webDriver.FindElement(By.Id("OFFICEREGIONID")));
             selectElement.SelectByText("Office: DAL");
 
