@@ -198,7 +198,7 @@ namespace BackshopWebAuto
             // Else for uniformity/readability
             else
             {
-                // Do nothing, already unchecked
+                // Do nothing, button already unchecked
             }
 
             Thread.Sleep(waitingTime);
