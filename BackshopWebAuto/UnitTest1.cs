@@ -170,8 +170,8 @@ namespace BackshopWebAuto
             // Drop down menu options
 
             // Select the investor
-            By chooseInvestor = By.Id("INVESTORID");
-            webDriver.FindElement(chooseInvestor).SendKeys(investor);
+            SelectElement investorSelector = new SelectElement(webDriver.FindElement(By.Id("INVESTORID")));
+            investorSelector.SelectByValue("10");
 
             Thread.Sleep(waitingTime);
 
