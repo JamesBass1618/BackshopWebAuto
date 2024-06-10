@@ -174,6 +174,50 @@ namespace BackshopWebAuto
 
             Thread.Sleep(waitingTime);
 
+            // Select the date
+            //By chooseDate = By.Id("EFFECTIVEDATE");
+            //webDriver.FindElement(chooseDate).SendKeys("");
+            //webDriver.FindElement(chooseDate).SendKeys(date);
+
+            Thread.Sleep(waitingTime);
+
+            // Select the export type
+            if (isShortForm)
+            {
+                By form = By.Id("TWOTABSONLY_");
+                webDriver.FindElement(form).Click();
+
+                Thread.Sleep(waitingTime);
+            }
+
+            else
+            {
+                // Do nothing
+            }
+
+            By export;
+
+            if (exportType.Equals("Excel"))
+            {
+                export = By.Id("EXPORTTYPE_EXCEL");
+                webDriver.FindElement(export).Click();
+            }
+
+            else
+            {
+                export = By.Id("EXPORTTYPE_PDF");
+                webDriver.FindElement(export).Click();
+ 
+            }
+
+            Thread.Sleep(waitingTime);
+
+            By buttonReport = By.Id("buttonRunReport_1");
+            webDriver.FindElement(buttonReport).Click();
+
+            Thread.Sleep(waitingTime);
+
+            Thread.Sleep(20000);
 
             webDriver.Quit();
         }
