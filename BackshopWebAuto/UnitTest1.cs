@@ -175,7 +175,7 @@ namespace BackshopWebAuto
 
             Thread.Sleep(waitingTime);
 
-            // Select the office
+            // Select the office using selector
             SelectElement selectElement = new SelectElement(webDriver.FindElement(By.Id("OFFICEREGIONID")));
             selectElement.SelectByText("Office: DAL");
 
