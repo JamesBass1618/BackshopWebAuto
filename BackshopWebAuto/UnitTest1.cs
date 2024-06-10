@@ -9,6 +9,7 @@ using static OpenQA.Selenium.Support.UI.WebDriverWait;
 using static SeleniumExtras.WaitHelpers.ExpectedConditions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
+using System.Collections.Generic;
 
 
 namespace BackshopWebAuto
@@ -16,10 +17,13 @@ namespace BackshopWebAuto
     [TestClass]
     public class UnitTest1
     {
-        class inputInfo
+        class InputInfo
         {
-
-            
+            public string Investor {  get; set; }
+            public string Date {  get; set; }
+            public string Office {  get; set; }
+            public string ExportType { get; set; }
+            public bool IsShortForm { get; set; }
         }
 
         [TestMethod]
@@ -57,10 +61,9 @@ namespace BackshopWebAuto
             // ACORE Capital Pipeline Report (new)
             By pipelineRep = By.XPath("//*[@id=\"RPT-1\"]/div[1]");
 
-            // Drop down menu option
-            By investor = By.Id("INVESTORID");
-            
 
+      
+          
             /** Start of navigation **/
             IWebDriver webDriver = new ChromeDriver();
 
@@ -143,9 +146,33 @@ namespace BackshopWebAuto
 
             // Start of JSON Parsing
             string json = System.IO.File.ReadAllText(@"C:\Users\JamesBass\Documents\Selenium\BackshopWebAuto\inputInfo.json");
-            var deserialized = JsonConvert.DeserializeObject<inputInfo>(json);
-            webDriver.FindElement(investor).SendKeys("Equitrust");
+            InputInfo deserialized = JsonConvert.DeserializeObject<InputInfo>(json);
 
+
+            // Extract all the information from the JSON File
+            string investor = deserialized.Investor;
+
+            string date = deserialized.Date;
+
+            string office = deserialized.Office;
+
+            string exportType = deserialized.ExportType;
+
+            bool isShortForm = deserialized.IsShortForm;
+
+            // Drop down menu options
+
+            // Select the investor
+            By chooseInvestor = By.Id("INVESTORID");
+            webDriver.FindElement(chooseInvestor).SendKeys(investor);
+
+            Thread.Sleep(waitingTime);
+
+            // Select the office
+            By chooseOffice = By.Id("OFFICEREGIONID");
+            webDriver.FindElement(chooseOffice).SendKeys(office);
+
+            Thread.Sleep(waitingTime);
 
 
             webDriver.Quit();
