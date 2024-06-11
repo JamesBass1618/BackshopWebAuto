@@ -19,6 +19,7 @@ namespace BackshopWebAuto
     {
         class InputInfo
         {
+            // JSON
             public string Investor {  get; set; }
             public string Date {  get; set; }
             public string Office {  get; set; }
